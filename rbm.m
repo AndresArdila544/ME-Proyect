@@ -19,7 +19,7 @@ nhidden = 100; % number of hidden units
 [M, b, c] = rbm_init(Ni, nhidden);
 
 %% TRAIN RBM
-max_epochs = 0; % number of training epochs
+max_epochs = 10; % number of training epochs
 eta = 0.001; % learning rate
 alpha = 0.5; % momentum
 lambda = 1e-5; % regularization
@@ -35,8 +35,8 @@ disp(size(labels_tr'));
 %TRAIN WITH ONE VS ALL
 lambda = 0.1;
 [all_theta] = oneVsAll(img_codes_tr, labelsNoHot , 10 , 0.1);
-y_pred_tr = predictOneVsAll(all_theta, img_codes_tr');
-y_pred_ts= predictOneVsAll(all_theta, img_codes_ts');
+y_pred_tr = predictOneVsAll(all_theta, img_codes_tr);
+y_pred_ts= predictOneVsAll(all_theta, img_codes_ts);
 
 
 
@@ -52,20 +52,7 @@ title(sprintf('training error, alpha: %f lambda: %f', alpha, lambda));
 xlabel('epoch');
 ylabel('error');
 
-%% PLOT CONFUSION MATRICES
-figure
-title('confusion matrix TR');
-plotconfusion(labels_tr', y_pred_tr, sprintf('TR set - , alpha: %f lambda: %f', alpha, lambda));
+fprintf('\nTraining Set Accuracy: %f\n', mean(double(y_pred_tr == labelsNoHot)) * 100);
 
-figure
-title('confusion matrix TS');
-plotconfusion(labels_ts', y_pred_ts, sprintf('TS set - , alpha: %f lambda: %f', alpha, lambda));
-
-%% PLOT WEIGHTS OF HIDDEN UNITS
-figure
-hold on
-for i=1:nhidden
-   subplot(10, 10, i);
-   imshow(reshape(M(:,i), 28, 28));
-   %title(sprintf('unit %d', i));
-end
+confmat=ConfusionMatrix(y_pred_tr,labelsNoHot);
+plotConfMat(confmat, {'0', '1','2','3','4','5','6','7','8','9'}, 16);
