@@ -38,8 +38,8 @@ grad = zeros(size(theta));
 
 h= zeros(size(y),1);
 h=  sigmoid(X * theta);
-size(theta);
-size(X);
+size(theta)
+size(X)
 beta= h-y;
 mult=zeros(size(grad),1);
 mult= (1/m)*(X'*beta);

@@ -34,7 +34,7 @@ disp(size(labels_tr'));
 
 %TRAIN WITH ONE VS ALL
 lambda = 0.1;
-[all_theta] = oneVsAll(img_codes_tr', labelsNoHot , 10 , 0.1);
+[all_theta] = oneVsAll(img_codes_tr, labelsNoHot , 10 , 0.1);
 y_pred_tr = predictOneVsAll(all_theta, img_codes_tr');
 y_pred_ts= predictOneVsAll(all_theta, img_codes_ts');
 
