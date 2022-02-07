@@ -1,3 +1,6 @@
+%% Función para construir una matriz de confusión
+%% Tomado de 
+%% https://www.titanwolf.org/Network/q/f5d1dc12-8758-433d-b7c0-aab77c591a55/y
 function [CMat_rel,CMat_abs] = ConfusionMatrix(Cprd,Cact)
 
 Cprd_uq = unique(Cprd);
@@ -5,7 +8,6 @@ Cact_uq = unique(Cact);
 
 NumPrd = length(Cprd_uq);
 NumAct = length(Cact_uq);
-% assert(NumPrd == NumAct)
 
 % allocate memory
 CMat_abs = NaN(NumPrd,NumAct);
