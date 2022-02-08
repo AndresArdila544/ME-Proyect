@@ -1,3 +1,4 @@
+%Tomado de https://github.com/Andrea-V/Restricted-Boltzmann-Machine
 function [H] = rbm_encode(X, M, b, c)
     Nh = size(c, 1);
     Ni = size(b, 1);

@@ -1,3 +1,4 @@
+%Tomado de https://github.com/Andrea-V/Restricted-Boltzmann-Machine
 function labels = loadMNISTLabels(filename)
 %loadMNISTLabels returns a [number of MNIST images]x1 matrix containing
 %the labels for the MNIST images

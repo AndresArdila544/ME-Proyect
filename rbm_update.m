@@ -1,3 +1,4 @@
+%Tomado de https://github.com/Andrea-V/Restricted-Boltzmann-Machine
 function [M, b, c] = rbm_update(M, b, c, deltaM, deltab, deltac, eta)
     %% WEIGHTS UPDATE
     % weights update

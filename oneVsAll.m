@@ -11,7 +11,6 @@ function [all_theta] = oneVsAll(X, y, num_labels, lambda)
 m = size(X, 1);
 n = size(X, 2);
 
-% You need to return the following variables correctly 
 all_theta = zeros(num_labels, n + 1);
 size(all_theta);
 

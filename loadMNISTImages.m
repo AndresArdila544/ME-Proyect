@@ -1,3 +1,4 @@
+%Tomado de https://github.com/Andrea-V/Restricted-Boltzmann-Machine
 function images = loadMNISTImages(filename)
 %loadMNISTImages returns a 28x28x[number of MNIST images] matrix containing
 %the raw MNIST images

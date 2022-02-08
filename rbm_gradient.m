@@ -1,3 +1,4 @@
+%Tomado de https://github.com/Andrea-V/Restricted-Boltzmann-Machine
 function [Mgrad, bgrad, cgrad] = rbm_gradient(v0, h0, vk, hk)
     Mgrad = (v0 * h0') - (vk * hk');
     bgrad = (v0 - vk);

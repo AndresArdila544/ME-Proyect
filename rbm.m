@@ -18,12 +18,14 @@ Ni = size(images_tr, 2);
 nhidden = 100; % number of hidden units
 [M, b, c] = rbm_init(Ni, nhidden);
 
+%%PARAMETROS A MODIFICAR
+max_epochs = 10; % number of training epochs
+eta = 0.001; % learning rate
+alpha = 0.5; % momentum
+lambda = 1e-5; % regularization
+k = 1; % contrastive-divergence steps
+
 %% TRAIN RBM
-max_epochs =10; % number of training epochs
-eta = 0.1; % learning rate
-alpha = 0.8; % momentum
-lambda = 1e-4; % regularization
-k = 2; % contrastive-divergence steps
 [M, b, c, errors] = rbm_train(images_tr, M, b, c, k, eta, alpha, lambda, max_epochs);
 
 %% ENCODE DIGITS

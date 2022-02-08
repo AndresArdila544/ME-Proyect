@@ -1,3 +1,4 @@
+%Tomado de https://github.com/Andrea-V/Restricted-Boltzmann-Machine
 function [M , b, c , errors] = rbm_train(X, M, b, c, cd_k, eta, alpha, lambda, max_epochs)
     % %% INIT VARIABLES
     e = 0;
